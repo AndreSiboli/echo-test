@@ -10,6 +10,7 @@ export default function Home() {
         <>
             <div className={styles.slide}>
                 <Navbar mode="fixed" />
+
                 <div className={styles.slide_fixed}>
                     <Container>
                         <div className={styles.slide_settings}>

@@ -234,7 +234,7 @@ export default function Slide() {
                 onMouseMove={(e) => dragMove(e)}
                 onMouseUp={(e) => dragEnd(e)}
             >
-                <div className={styles.slide_group} ref={slideRef}>
+               <div className={styles.slide_group} ref={slideRef}> 
                     <div className={styles.slide_wrapper}>
                         <Slide5 />
                     </div>
@@ -257,7 +257,7 @@ export default function Slide() {
                     <div className={styles.slide_wrapper}>
                         <Slide1 />
                     </div>
-                </div>
+                </div> 
             </main>
         </div>
     );
