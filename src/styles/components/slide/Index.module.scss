@@ -1,6 +1,7 @@
 .slide {
     height: 100%;
     overflow: hidden;
+    min-height: 100svh;
 
     &_container {
         background: #000;
