@@ -1,0 +1,39 @@
+.logo {
+    display: block;
+
+    h1 {
+        display: flex;
+        align-items: flex-start;
+        font-size: calc(1.5em + 0.8vw);
+
+        .logo_icon {
+            position: relative;
+
+            .icon_camera {
+                display: block;
+                font-size: 0.7em;
+                color: #e72d15;
+            }
+
+            .icon_flash {
+                position: absolute;
+                top: 0;
+                left: -4px;
+                font-size: 0.4em;
+                opacity: 0;
+                scale: 0;
+                color: #fff;
+                transition: 0.1s ease-in-out;
+            }
+        }
+    }
+
+    &:hover {
+        h1 {
+            .icon_flash {
+                scale: 1;
+                opacity: 1;
+            }
+        }
+    }
+}
