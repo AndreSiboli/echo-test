@@ -156,18 +156,25 @@ export default function Slide() {
         slider.className = `${styles.slide_group} ${active ? styles.transition : ''}`;
     }
 
-    function dragStart(e: MouseEvent<HTMLElement>) {
+    function dragStart(e: MouseEvent | TouchEvent) {
         const main = mainRef.current;
         if (!main) return;
 
-        e.preventDefault();
+        // e.preventDefault();
         stopFunction();
         dragging.current = true;
-        initial.current = -e.clientX;
+
+        if ('touches' in e) {
+            initial.current = -e.touches[0].clientX;
+        } else {
+            initial.current = -e.clientX;
+        }
+
         mainRef.current.style.cursor = 'grabbing';
+        console.log(initial.current, e);
     }
 
-    function dragMove(e: MouseEvent<HTMLElement>) {
+    function dragMove(e: MouseEvent) {
         const main = mainRef.current;
         if (!main) return;
 
@@ -177,8 +184,8 @@ export default function Slide() {
         main.style.cursor = 'grabbing';
     }
 
-    function dragEnd(e: MouseEvent<HTMLElement>) {
-        e.preventDefault();
+    function dragEnd(e: MouseEvent | TouchEvent) {
+        // e.preventDefault();
         const main = mainRef.current;
         const slider = slideRef.current;
         if (!main || !slider || !allowShift) return;
@@ -188,7 +195,15 @@ export default function Slide() {
         stopFunction();
         addAnimation(true);
 
-        if (-e.clientX > initial.current + 100) {
+        let posX = 0;
+
+        if ('touches' in e) {
+            posX = -e.touches[0].clientX;
+        } else {
+            posX = -e.clientX;
+        }
+
+        if (posX > initial.current + 100) {
             if (slide + 1 > 5) {
                 infiniteFow();
                 return;
@@ -197,7 +212,7 @@ export default function Slide() {
             setSlide((prevState) => prevState + 1);
 
             return;
-        } else if (-e.clientX < initial.current - 100) {
+        } else if (posX < initial.current - 100) {
             if (slide - 1 <= 0) {
                 addAnimation(true);
                 slider.style.translate = `0`;
@@ -233,8 +248,10 @@ export default function Slide() {
                 onMouseDown={(e) => dragStart(e)}
                 onMouseMove={(e) => dragMove(e)}
                 onMouseUp={(e) => dragEnd(e)}
+                onTouchStart={(e) => dragStart}
+                onTouchMove={(e) => dragEnd}
             >
-               <div className={styles.slide_group} ref={slideRef}> 
+                <div className={styles.slide_group} ref={slideRef}>
                     <div className={styles.slide_wrapper}>
                         <Slide5 />
                     </div>
@@ -257,7 +274,7 @@ export default function Slide() {
                     <div className={styles.slide_wrapper}>
                         <Slide1 />
                     </div>
-                </div> 
+                </div>
             </main>
         </div>
     );

@@ -7,7 +7,7 @@ import Image from '@/assets/home/pexels-kha-ruxury-1895251.jpg';
 
 export default function Slide2() {
     return (
-        <Slide position="right 15%" image={Image}>
+        <Slide position="center 15%" image={Image}>
             <div className={styles.slide}>
                 <Container>
                     <div className={styles.slide_infos}>

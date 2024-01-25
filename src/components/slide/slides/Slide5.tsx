@@ -8,7 +8,7 @@ import Image from '@/assets/home/pexels-hatice-baran-19055796.jpg';
 
 export default function Slide5() {
     return (
-        <Slide position="right 35%" image={Image}>
+        <Slide position="center 35%" image={Image}>
             <div className={styles.slide}>
                 <Container>
                     <div className={styles.slide_infos}>

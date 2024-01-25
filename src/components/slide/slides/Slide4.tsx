@@ -8,7 +8,7 @@ import Image from '@/assets/home/pexels-monstera-production-5303015.jpg';
 
 export default function Slide4() {
     return (
-        <Slide position="right 40%" image={Image}>
+        <Slide position="center 40%" image={Image}>
             <div className={styles.slide}>
                 <Container>
                     <div className={styles.slide_infos}>

@@ -7,7 +7,7 @@ import Image from '@/assets/home/pexels-esra-korkmaz-1955245.jpg';
 
 export default function Slide3() {
     return (
-        <Slide position="right 35%" image={Image}>
+        <Slide position="center 35%" image={Image}>
             <div className={styles.slide}>
                 <Container>
                     <div className={styles.slide_infos}>
