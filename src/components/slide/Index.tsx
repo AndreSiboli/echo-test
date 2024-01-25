@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect, useRef, useState } from 'react';
+import { MouseEvent, TouchEvent, useEffect, useRef, useState } from 'react';
 import styles from '@/styles/components/slide/Index.module.scss';
 
 import Slide5 from '@/components/slide/slides/Slide5';
@@ -46,10 +46,10 @@ export default function Slide() {
             clearTimeout(int);
             return;
         }
-        animation();
+        slideTimer();
     }, [slide, stopSlide]);
 
-    function animation() {
+    function slideTimer() {
         if (!mainRef.current) return;
 
         const int = interval.current;
@@ -157,10 +157,10 @@ export default function Slide() {
     }
 
     function dragStart(e: MouseEvent | TouchEvent) {
+        // e.preventDefault();
         const main = mainRef.current;
         if (!main) return;
 
-        // e.preventDefault();
         stopFunction();
         dragging.current = true;
 
@@ -171,7 +171,6 @@ export default function Slide() {
         }
 
         mainRef.current.style.cursor = 'grabbing';
-        console.log(initial.current, e);
     }
 
     function dragMove(e: MouseEvent) {
@@ -198,7 +197,7 @@ export default function Slide() {
         let posX = 0;
 
         if ('touches' in e) {
-            posX = -e.touches[0].clientX;
+            posX = -e.changedTouches[0].clientX;
         } else {
             posX = -e.clientX;
         }
@@ -248,8 +247,8 @@ export default function Slide() {
                 onMouseDown={(e) => dragStart(e)}
                 onMouseMove={(e) => dragMove(e)}
                 onMouseUp={(e) => dragEnd(e)}
-                onTouchStart={(e) => dragStart}
-                onTouchMove={(e) => dragEnd}
+                onTouchStart={(e) => dragStart(e)}
+                onTouchEnd={(e) => dragEnd(e)}
             >
                 <div className={styles.slide_group} ref={slideRef}>
                     <div className={styles.slide_wrapper}>
