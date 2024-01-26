@@ -17,7 +17,7 @@ export default function MainContainer({ children }: { children: ReactNode }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="author" content="André Siboli" />
                 <meta name="keywords" content="gallery, echo, photo, photography, studio" />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="./favicon.ico" />
             </Head>
 
             <div className={inter.className} style={{ height: '100%' }}>
