@@ -10,6 +10,7 @@ import team2 from '@/assets/team/pexels-esma-atak-19270865.jpg';
 import team3 from '@/assets/team/pexels-phong-phạm-xuân-19877105.jpg';
 import team4 from '@/assets/team/pexels-vurzie-kim-14875250.jpg.jpg';
 import SidePage from '@/components/layout/SidePages';
+import Line from '@/components/animations/Line';
 
 export default function About() {
     return (
@@ -42,11 +43,7 @@ export default function About() {
                                 the lens of creativity.
                             </p>
                         </div>
-                        <div className={styles.trace}>
-                            <div>
-                                <div></div>
-                            </div>
-                        </div>
+                        <Line timer="cover 15% cover 100%" />
                         <div className={styles.about_team}>
                             <h1>Our team</h1>
                             <div className={styles.team}>

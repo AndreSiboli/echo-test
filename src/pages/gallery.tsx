@@ -5,6 +5,7 @@ import Container from '@/components/layout/Container';
 import GalleryContainer from '@/components/pages/gallery/GalleryContainer';
 import Footer from '@/components/bars/Footer/Index';
 import SidePage from '@/components/layout/SidePages';
+import Line from '@/components/animations/Line';
 
 export default function Gallery() {
     return (
@@ -21,11 +22,7 @@ export default function Gallery() {
                                     moments into timeless works of art.
                                 </p>
                             </div>
-                            <div className={styles.trace}>
-                                <div>
-                                    <div></div>
-                                </div>
-                            </div>
+                            <Line timer="cover 30% cover 100%" />
                             <div className={styles.gallery_images}>
                                 <GalleryContainer />
                             </div>

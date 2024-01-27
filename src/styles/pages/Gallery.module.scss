@@ -19,58 +19,6 @@
         gap: 1em;
         max-width: 500px;
         width: 100%;
-
         text-align: center;
-    }
-
-    .trace {
-        display: flex;
-        justify-content: center;
-        height: 300px;
-        width: 100%;
-
-        > div {
-            width: 1px;
-            height: 100%;
-            position: relative;
-
-            > div {
-                display: flex;
-
-                width: 100%;
-                height: 0%;
-                position: absolute;
-                top: 0;
-                background-color: #fff;
-                animation: up 0.5s forwards;
-                animation-timeline: scroll();
-                animation-range: cover 0% cover 30%;
-
-                @keyframes up {
-                    to {
-                        height: 100%;
-                    }
-                }
-            }
-
-            &:after,
-            &:before {
-                content: '';
-                position: absolute;
-                left: -2px;
-                height: 5px;
-                width: 5px;
-                border-radius: 50%;
-                background: #fff;
-            }
-
-            &:after {
-                top: 0;
-            }
-
-            &:before {
-                bottom: 0;
-            }
-        }
     }
 }

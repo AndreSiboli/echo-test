@@ -11,13 +11,14 @@
     }
 
     label {
-        display: block;
+        display: grid;
+        place-items: center;
         width: 100%;
         height: 100%;
         border-radius: 50%;
         border: 1px solid #fff;
-        padding: 0.05em;
         cursor: pointer;
+        position: relative;
 
         .dot {
             display: block;

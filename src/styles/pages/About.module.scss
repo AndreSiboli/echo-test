@@ -17,7 +17,7 @@
 
         p {
             line-height: 1.5em;
-            text-align: justify;
+            text-align: center;
             max-width: 800px;
             width: 100%;
         }
@@ -38,57 +38,6 @@
 
             @media (max-width: 420px) {
                 grid-template-columns: repeat(1, minmax(0px, 250px));
-            }
-        }
-    }
-
-    .trace {
-        display: flex;
-        justify-content: center;
-        height: 300px;
-        width: 100%;
-
-        > div {
-            width: 1px;
-            height: 100%;
-            position: relative;
-
-            > div {
-                display: flex;
-
-                width: 100%;
-                height: 0%;
-                position: absolute;
-                top: 0;
-                background-color: #fff;
-                animation: up 0.5s forwards;
-                animation-timeline: scroll();
-                animation-range: cover 15% cover 65%;
-
-                @keyframes up {
-                    to {
-                        height: 100%;
-                    }
-                }
-            }
-
-            &:after,
-            &:before {
-                content: '';
-                position: absolute;
-                left: -2px;
-                height: 5px;
-                width: 5px;
-                border-radius: 50%;
-                background: #fff;
-            }
-
-            &:after {
-                top: 0;
-            }
-
-            &:before {
-                bottom: 0;
             }
         }
     }
